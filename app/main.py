@@ -1,13 +1,16 @@
 import sys
 
-COMMANDS = {}
+COMMANDS = {
+    exit: sys.exit(0),
+}
 
 def main():
     while True:
         sys.stdout.write("$ ")
+        sys.stdout.flush()
         command = sys.stdin.readline().strip()
-        if command in COMMANDS:
-            pass
+        if command in COMMANDS.keys():
+            COMMANDS[command]()
         else:
             sys.stdout.write(f'{command}: command not found\n')
         
