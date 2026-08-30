@@ -13,6 +13,7 @@ def main():
             COMMANDS[command]()
         else:
             sys.stdout.write(f'{command}: command not found\n')
+            sys.stdout.flush()
         
 
 
