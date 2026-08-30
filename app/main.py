@@ -1,7 +1,10 @@
 import sys
 
+def _exit():
+    sys.exit(0)
+    
 COMMANDS = {
-    exit: sys.exit(0),
+    'exit': _exit,
 }
 
 def main():
@@ -10,10 +13,10 @@ def main():
         sys.stdout.flush()
         command = sys.stdin.readline().strip()
         if command in COMMANDS.keys():
-            COMMANDS[command]()
+            COMMANDS.get(command)()
         else:
             sys.stdout.write(f'{command}: command not found\n')
-            sys.stdout.flush()
+        sys.stdout.flush()
         
 
 
