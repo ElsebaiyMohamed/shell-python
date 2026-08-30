@@ -22,7 +22,7 @@ def _type(args: list):
             message = f"{args} is a {COMMANDS.get(args)[1]}"
             sys.stdout.write(message)
         else:
-            NOTFOUND(args)
+            sys.stdout.write(f"{args}: not found")
     sys.stdout.write("\n")
 
 COMMANDS = {
