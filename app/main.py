@@ -1,5 +1,7 @@
 import sys
 
+def NOTFOUND(command: str):
+    sys.stdout.write(f'{command}: command not found')
 
 def _exit(_):
     sys.exit(0)
@@ -16,8 +18,11 @@ def _type(args: list):
         sys.stdout.write("type: too many arguments")
     else:
         args = args[0]
-        message = f"{args} is a {COMMANDS.get(args)[1]}"
-        sys.stdout.write(message)
+        if check_command(args):
+            message = f"{args} is a {COMMANDS.get(args)[1]}"
+            sys.stdout.write(message)
+        else:
+            NOTFOUND(args)
     sys.stdout.write("\n")
 
 COMMANDS = {
@@ -43,7 +48,9 @@ def main():
         if check_command(command):
             COMMANDS.get(command)[0](args)
         else:
-            sys.stdout.write(f'{command}: command not found\n')
+            NOTFOUND(command)
+            sys.stdout.write("\n")
+
         sys.stdout.flush()
         
 
