@@ -7,7 +7,7 @@ COMMANDS = {
 def main():
     while True:
         sys.stdout.write("$ ")
-        sys.stdout.flush()
+        # sys.stdout.flush()
         command = sys.stdin.readline().strip()
         if command in COMMANDS.keys():
             COMMANDS[command]()
