@@ -56,6 +56,7 @@ def check_command_in_path(command: str):
                     full_path = os.path.join(dirpath, filename)
                     if os.path.isfile(full_path) and os.access(full_path, os.X_OK):
                         return True, os.path.splitext(full_path)[0]
+                    
     return False, None
 
     
